@@ -27,9 +27,22 @@ Description:
 """
 from typing import List
 
+class Solution_SecondAttempt:
+    def maxProfit(self, prices: List[int]) -> int:
+        actual_profit = 0
+        i = 0; j = 1
+        while j < len(prices):
+            potential_profit = prices[j] - prices[i]
+            if potential_profit > actual_profit:
+                actual_profit = potential_profit
+            elif potential_profit < 0:
+                i = j
+            j += 1
+        return actual_profit
+    
 # Note that this solution works for smaller test cases but times out at test
-# case 200/212; see other posted submissions for more efficient solutions
-class Solution:
+# case 200/212
+class Solution_FirstAttempt:
     def maxProfit(self, prices: List[int]) -> int:
         profit = 0
         for index, buy_price in enumerate(prices):
