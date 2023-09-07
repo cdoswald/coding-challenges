@@ -47,6 +47,8 @@ Description:
     Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 """
 
+# Note: better solution is to just subtract the value at s[i] if s[i] < s[i+1]
+# and add the value otherwise
 class Solution:
     def romanToInt(self, s: str) -> int:
         vals_dict = {
